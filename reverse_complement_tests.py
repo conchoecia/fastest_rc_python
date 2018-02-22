@@ -8,6 +8,7 @@ import string
 import sys
 import subprocess
 import pandas as pd
+import progressbar
 
 
 #we need to build the seqpy extension if we have not yet built it
@@ -41,7 +42,7 @@ DNAlength = 17
 #randomly generate 100k bases
 int_to_basemap = {1: 'A', 2: 'C', 3: 'G', 4: 'T'}
 num_strings = 10000
-num_trials = 100
+num_trials = 250
 random.seed(90210)
 DNAstrings = ["".join([int_to_basemap[random.randint(1,4)] for i in range(DNAlength)])
               for j in range(num_strings)]
@@ -103,8 +104,8 @@ for n in range(num_trials):
 baseline = np.mean(bl)
 
 
-namefunc = {"naive implementation": reverse_complement_naive,
-            "global dict implementation": reverse_complement,
+namefunc = {"naive (baseline)": reverse_complement_naive,
+            "global dict ": reverse_complement,
             "biopython seq then rc": Seq,
             "revcom from SO": revcom_fromSO,
             "lambda from SO": revcomplSO,
@@ -114,13 +115,16 @@ namefunc = {"naive implementation": reverse_complement_naive,
             "jackaidley bytes": reverse_complement_bytes_jackaidley,
             "jackaidley bytesstring": reverse_complement_bytesthenstring_jackaidley,
             "user172818 seqpy.c": seqpy.revcomp,
-            "alexreynolds Cython implementation (v1)": reverse_complement_c_v1,
-            "alexreynolds Cython implementation (v2)": reverse_complement_c_v2}
+            "alexreynolds Cython (v1)": reverse_complement_c_v1,
+            "alexreynolds Cython (v2)": reverse_complement_c_v2}
 
 results = {"name":[],
            "seconds total": [],
            "strings per second": [],
            "percent increase over baseline":[]}
+
+bar = progressbar.ProgressBar(max_value=int(len(namefunc) *num_trials))
+i = 0
 for function_name in sorted(namefunc):
     times_list = []
     for n in range(num_trials):
@@ -133,12 +137,22 @@ for function_name in sorted(namefunc):
             rcs = [func(seq) for seq in DNAstrings]
         toc=timeit.default_timer()
         times_list.append(toc-tic)
+        i += 1
+        bar.update(i)
     walltime = np.mean(times_list)
     results["name"].append(function_name)
     results["seconds total"].append(walltime)
     results["strings per second"].append("{:.1f}".format(num_strings/walltime))
     results["percent increase over baseline"].append("{:.1f}%".format(100- ((walltime/baseline)*100)))
 
+
+pd.set_option('display.height', 1000)
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 1000)
 df = pd.DataFrame.from_dict(results)
 df = df.set_index("name")
+
+print(" the runtime of reverse complement implementations.")
+print("{} strings and {} repetitions".format(num_strings, num_trials))
 print(df.sort_values("percent increase over baseline", ascending=False))
