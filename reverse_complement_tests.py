@@ -7,6 +7,7 @@ from Bio.Seq import Seq
 import string
 import sys
 import subprocess
+import pandas as pd
 
 
 #we need to build the seqpy extension if we have not yet built it
@@ -116,6 +117,10 @@ namefunc = {"naive implementation": reverse_complement_naive,
             "alexreynolds Cython implementation (v1)": reverse_complement_c_v1,
             "alexreynolds Cython implementation (v2)": reverse_complement_c_v2}
 
+results = {"name":[],
+           "seconds total": [],
+           "strings per second": [],
+           "percent increase over baseline":[]}
 for function_name in sorted(namefunc):
     times_list = []
     for n in range(num_trials):
@@ -129,11 +134,11 @@ for function_name in sorted(namefunc):
         toc=timeit.default_timer()
         times_list.append(toc-tic)
     walltime = np.mean(times_list)
-    print("""{}
-       {:.5f}s total,
-       {:.1f} strings per second
-       {:.1f}% increase over baseline""".format(
-           function_name,
-           walltime,
-           num_strings/walltime,
-           100- ((walltime/baseline)*100)   ))
+    results["name"].append(function_name)
+    results["seconds total"].append(walltime)
+    results["strings per second"].append("{:.1f}".format(num_strings/walltime))
+    results["percent increase over baseline"].append("{:.1f}%".format(100- ((walltime/baseline)*100)))
+
+df = pd.DataFrame.from_dict(results)
+df = df.set_index("name")
+print(df.sort_values("percent increase over baseline", ascending=False))

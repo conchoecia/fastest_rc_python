@@ -5,7 +5,7 @@
     "distutils": {
         "depends": []
     },
-    "module_name": "revcomp_c"
+    "module_name": "revcomp_c2"
 }
 END: Cython Metadata */
 
@@ -436,8 +436,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__revcomp_c
-#define __PYX_HAVE_API__revcomp_c
+#define __PYX_HAVE__revcomp_c2
+#define __PYX_HAVE_API__revcomp_c2
 #include <string.h>
 #include <stdlib.h>
 #ifdef _OPENMP
@@ -635,7 +635,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "revcomp_c.pyx",
+  "revcomp_c2.pyx",
 };
 
 /*--- Type declarations ---*/
@@ -785,62 +785,61 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from 'libc.stdlib' */
 
-/* Module declarations from 'revcomp_c' */
-static int __pyx_v_9revcomp_c_seq_len;
-static char *__pyx_v_9revcomp_c_seq_dest;
-#define __Pyx_MODULE_NAME "revcomp_c"
-int __pyx_module_is_main_revcomp_c = 0;
+/* Module declarations from 'revcomp_c2' */
+static int __pyx_v_10revcomp_c2_seq_len;
+static char *__pyx_v_10revcomp_c2_seq_dest;
+static char *__pyx_v_10revcomp_c2_basemap;
+#define __Pyx_MODULE_NAME "revcomp_c2"
+int __pyx_module_is_main_revcomp_c2 = 0;
 
-/* Implementation of 'revcomp_c' */
+/* Implementation of 'revcomp_c2' */
 static PyObject *__pyx_builtin_range;
-static const char __pyx_k_d[] = "d";
 static const char __pyx_k_i[] = "i";
 static const char __pyx_k_seq[] = "seq";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_test[] = "__test__";
-static const char __pyx_k_ascii[] = "ascii";
+static const char __pyx_k_UTF_8[] = "UTF-8";
 static const char __pyx_k_range[] = "range";
 static const char __pyx_k_encode[] = "encode";
 static const char __pyx_k_seq_src[] = "seq_src";
 static const char __pyx_k_py_bytes[] = "py_bytes";
-static const char __pyx_k_revcomp_c[] = "revcomp_c";
-static const char __pyx_k_reverse_complement_c_v1[] = "reverse_complement_c_v1";
-static const char __pyx_k_Users_darrin_git_kmer_scaffolde[] = "/Users/darrin/git/kmer_scaffolder/scripts/revcomp_c.pyx";
+static const char __pyx_k_revcomp_c2[] = "revcomp_c2";
+static const char __pyx_k_reverse_complement_c_v2[] = "reverse_complement_c_v2";
+static const char __pyx_k_Users_darrin_git_kmer_scaffolde[] = "/Users/darrin/git/kmer_scaffolder/scripts/revcomp_c2.pyx";
+static PyObject *__pyx_kp_s_UTF_8;
 static PyObject *__pyx_kp_s_Users_darrin_git_kmer_scaffolde;
-static PyObject *__pyx_n_s_ascii;
-static PyObject *__pyx_n_s_d;
 static PyObject *__pyx_n_s_encode;
 static PyObject *__pyx_n_s_i;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_py_bytes;
 static PyObject *__pyx_n_s_range;
-static PyObject *__pyx_n_s_revcomp_c;
-static PyObject *__pyx_n_s_reverse_complement_c_v1;
+static PyObject *__pyx_n_s_revcomp_c2;
+static PyObject *__pyx_n_s_reverse_complement_c_v2;
 static PyObject *__pyx_n_s_seq;
 static PyObject *__pyx_n_s_seq_src;
 static PyObject *__pyx_n_s_test;
-static PyObject *__pyx_pf_9revcomp_c_reverse_complement_c_v1(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_seq); /* proto */
+static PyObject *__pyx_pf_10revcomp_c2_reverse_complement_c_v2(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_seq); /* proto */
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__2;
 static PyObject *__pyx_codeobj__3;
 
-/* "revcomp_c.pyx":7
- * seq_dest[seq_len] = '\0'
+/* "revcomp_c2.pyx":9
+ * cdef char *basemap = [ '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',   '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  'T', '\0',  'G', '\0', '\0', '\0',  'C', '\0', '\0', '\0', '\0', '\0', '\0',  'N', '\0', '\0', '\0', '\0', '\0',  'A',  'A', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  't', '\0',  'g', '\0', '\0', '\0',  'c', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  'a',  'a' ]
  * 
- * def reverse_complement_c_v1(str seq):             # <<<<<<<<<<<<<<
- *     cdef bytes py_bytes = seq.encode('ascii')
+ * def reverse_complement_c_v2(str seq):             # <<<<<<<<<<<<<<
+ *     cdef bytes py_bytes = seq.encode('UTF-8')
  *     cdef char *seq_src = py_bytes
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9revcomp_c_1reverse_complement_c_v1(PyObject *__pyx_self, PyObject *__pyx_v_seq); /*proto*/
-static PyMethodDef __pyx_mdef_9revcomp_c_1reverse_complement_c_v1 = {"reverse_complement_c_v1", (PyCFunction)__pyx_pw_9revcomp_c_1reverse_complement_c_v1, METH_O, 0};
-static PyObject *__pyx_pw_9revcomp_c_1reverse_complement_c_v1(PyObject *__pyx_self, PyObject *__pyx_v_seq) {
+static PyObject *__pyx_pw_10revcomp_c2_1reverse_complement_c_v2(PyObject *__pyx_self, PyObject *__pyx_v_seq); /*proto*/
+static PyMethodDef __pyx_mdef_10revcomp_c2_1reverse_complement_c_v2 = {"reverse_complement_c_v2", (PyCFunction)__pyx_pw_10revcomp_c2_1reverse_complement_c_v2, METH_O, 0};
+static PyObject *__pyx_pw_10revcomp_c2_1reverse_complement_c_v2(PyObject *__pyx_self, PyObject *__pyx_v_seq) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("reverse_complement_c_v1 (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_seq), (&PyString_Type), 1, "seq", 1))) __PYX_ERR(0, 7, __pyx_L1_error)
-  __pyx_r = __pyx_pf_9revcomp_c_reverse_complement_c_v1(__pyx_self, ((PyObject*)__pyx_v_seq));
+  __Pyx_RefNannySetupContext("reverse_complement_c_v2 (wrapper)", 0);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_seq), (&PyString_Type), 1, "seq", 1))) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_r = __pyx_pf_10revcomp_c2_reverse_complement_c_v2(__pyx_self, ((PyObject*)__pyx_v_seq));
 
   /* function exit code */
   goto __pyx_L0;
@@ -851,11 +850,10 @@ static PyObject *__pyx_pw_9revcomp_c_1reverse_complement_c_v1(PyObject *__pyx_se
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9revcomp_c_reverse_complement_c_v1(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_seq) {
+static PyObject *__pyx_pf_10revcomp_c2_reverse_complement_c_v2(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_seq) {
   PyObject *__pyx_v_py_bytes = 0;
   char *__pyx_v_seq_src;
   int __pyx_v_i;
-  int __pyx_v_d;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -863,206 +861,80 @@ static PyObject *__pyx_pf_9revcomp_c_reverse_complement_c_v1(CYTHON_UNUSED PyObj
   char *__pyx_t_3;
   int __pyx_t_4;
   int __pyx_t_5;
-  int __pyx_t_6;
-  __Pyx_RefNannySetupContext("reverse_complement_c_v1", 0);
+  __Pyx_RefNannySetupContext("reverse_complement_c_v2", 0);
 
-  /* "revcomp_c.pyx":8
+  /* "revcomp_c2.pyx":10
  * 
- * def reverse_complement_c_v1(str seq):
- *     cdef bytes py_bytes = seq.encode('ascii')             # <<<<<<<<<<<<<<
+ * def reverse_complement_c_v2(str seq):
+ *     cdef bytes py_bytes = seq.encode('UTF-8')             # <<<<<<<<<<<<<<
  *     cdef char *seq_src = py_bytes
  *     cdef int i = 0
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_seq, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_seq, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 10, __pyx_L1_error)
   __pyx_v_py_bytes = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "revcomp_c.pyx":9
- * def reverse_complement_c_v1(str seq):
- *     cdef bytes py_bytes = seq.encode('ascii')
+  /* "revcomp_c2.pyx":11
+ * def reverse_complement_c_v2(str seq):
+ *     cdef bytes py_bytes = seq.encode('UTF-8')
  *     cdef char *seq_src = py_bytes             # <<<<<<<<<<<<<<
  *     cdef int i = 0
- *     cdef int d = 0
+ *     for i in range(seq_len):
  */
-  __pyx_t_3 = __Pyx_PyObject_AsString(__pyx_v_py_bytes); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_AsString(__pyx_v_py_bytes); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L1_error)
   __pyx_v_seq_src = __pyx_t_3;
 
-  /* "revcomp_c.pyx":10
- *     cdef bytes py_bytes = seq.encode('ascii')
+  /* "revcomp_c2.pyx":12
+ *     cdef bytes py_bytes = seq.encode('UTF-8')
  *     cdef char *seq_src = py_bytes
  *     cdef int i = 0             # <<<<<<<<<<<<<<
- *     cdef int d = 0
  *     for i in range(seq_len):
+ *         seq_dest[seq_len - i - 1] = basemap[<int>seq_src[i]]
  */
   __pyx_v_i = 0;
 
-  /* "revcomp_c.pyx":11
+  /* "revcomp_c2.pyx":13
  *     cdef char *seq_src = py_bytes
  *     cdef int i = 0
- *     cdef int d = 0             # <<<<<<<<<<<<<<
- *     for i in range(seq_len):
- *         d = seq_len - i - 1
- */
-  __pyx_v_d = 0;
-
-  /* "revcomp_c.pyx":12
- *     cdef int i = 0
- *     cdef int d = 0
  *     for i in range(seq_len):             # <<<<<<<<<<<<<<
- *         d = seq_len - i - 1
- *         if seq_src[i] == 'A':
+ *         seq_dest[seq_len - i - 1] = basemap[<int>seq_src[i]]
+ *     return seq_dest[:seq_len].decode('UTF-8')
  */
-  __pyx_t_4 = __pyx_v_9revcomp_c_seq_len;
+  __pyx_t_4 = __pyx_v_10revcomp_c2_seq_len;
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_i = __pyx_t_5;
 
-    /* "revcomp_c.pyx":13
- *     cdef int d = 0
+    /* "revcomp_c2.pyx":14
+ *     cdef int i = 0
  *     for i in range(seq_len):
- *         d = seq_len - i - 1             # <<<<<<<<<<<<<<
- *         if seq_src[i] == 'A':
- *             seq_dest[d] = 'T'
+ *         seq_dest[seq_len - i - 1] = basemap[<int>seq_src[i]]             # <<<<<<<<<<<<<<
+ *     return seq_dest[:seq_len].decode('UTF-8')
  */
-    __pyx_v_d = ((__pyx_v_9revcomp_c_seq_len - __pyx_v_i) - 1);
-
-    /* "revcomp_c.pyx":14
- *     for i in range(seq_len):
- *         d = seq_len - i - 1
- *         if seq_src[i] == 'A':             # <<<<<<<<<<<<<<
- *             seq_dest[d] = 'T'
- *         elif seq_src[i] == 'G':
- */
-    __pyx_t_6 = (((__pyx_v_seq_src[__pyx_v_i]) == 'A') != 0);
-    if (__pyx_t_6) {
-
-      /* "revcomp_c.pyx":15
- *         d = seq_len - i - 1
- *         if seq_src[i] == 'A':
- *             seq_dest[d] = 'T'             # <<<<<<<<<<<<<<
- *         elif seq_src[i] == 'G':
- *             seq_dest[d] = 'C'
- */
-      (__pyx_v_9revcomp_c_seq_dest[__pyx_v_d]) = 'T';
-
-      /* "revcomp_c.pyx":14
- *     for i in range(seq_len):
- *         d = seq_len - i - 1
- *         if seq_src[i] == 'A':             # <<<<<<<<<<<<<<
- *             seq_dest[d] = 'T'
- *         elif seq_src[i] == 'G':
- */
-      goto __pyx_L5;
-    }
-
-    /* "revcomp_c.pyx":16
- *         if seq_src[i] == 'A':
- *             seq_dest[d] = 'T'
- *         elif seq_src[i] == 'G':             # <<<<<<<<<<<<<<
- *             seq_dest[d] = 'C'
- *         elif seq_src[i] == 'C':
- */
-    __pyx_t_6 = (((__pyx_v_seq_src[__pyx_v_i]) == 'G') != 0);
-    if (__pyx_t_6) {
-
-      /* "revcomp_c.pyx":17
- *             seq_dest[d] = 'T'
- *         elif seq_src[i] == 'G':
- *             seq_dest[d] = 'C'             # <<<<<<<<<<<<<<
- *         elif seq_src[i] == 'C':
- *             seq_dest[d] = 'G'
- */
-      (__pyx_v_9revcomp_c_seq_dest[__pyx_v_d]) = 'C';
-
-      /* "revcomp_c.pyx":16
- *         if seq_src[i] == 'A':
- *             seq_dest[d] = 'T'
- *         elif seq_src[i] == 'G':             # <<<<<<<<<<<<<<
- *             seq_dest[d] = 'C'
- *         elif seq_src[i] == 'C':
- */
-      goto __pyx_L5;
-    }
-
-    /* "revcomp_c.pyx":18
- *         elif seq_src[i] == 'G':
- *             seq_dest[d] = 'C'
- *         elif seq_src[i] == 'C':             # <<<<<<<<<<<<<<
- *             seq_dest[d] = 'G'
- *         elif seq_src[i] == 'T':
- */
-    __pyx_t_6 = (((__pyx_v_seq_src[__pyx_v_i]) == 'C') != 0);
-    if (__pyx_t_6) {
-
-      /* "revcomp_c.pyx":19
- *             seq_dest[d] = 'C'
- *         elif seq_src[i] == 'C':
- *             seq_dest[d] = 'G'             # <<<<<<<<<<<<<<
- *         elif seq_src[i] == 'T':
- *             seq_dest[d] = 'A'
- */
-      (__pyx_v_9revcomp_c_seq_dest[__pyx_v_d]) = 'G';
-
-      /* "revcomp_c.pyx":18
- *         elif seq_src[i] == 'G':
- *             seq_dest[d] = 'C'
- *         elif seq_src[i] == 'C':             # <<<<<<<<<<<<<<
- *             seq_dest[d] = 'G'
- *         elif seq_src[i] == 'T':
- */
-      goto __pyx_L5;
-    }
-
-    /* "revcomp_c.pyx":20
- *         elif seq_src[i] == 'C':
- *             seq_dest[d] = 'G'
- *         elif seq_src[i] == 'T':             # <<<<<<<<<<<<<<
- *             seq_dest[d] = 'A'
- *     return seq_dest[:seq_len].decode('ascii')
- */
-    __pyx_t_6 = (((__pyx_v_seq_src[__pyx_v_i]) == 'T') != 0);
-    if (__pyx_t_6) {
-
-      /* "revcomp_c.pyx":21
- *             seq_dest[d] = 'G'
- *         elif seq_src[i] == 'T':
- *             seq_dest[d] = 'A'             # <<<<<<<<<<<<<<
- *     return seq_dest[:seq_len].decode('ascii')
- */
-      (__pyx_v_9revcomp_c_seq_dest[__pyx_v_d]) = 'A';
-
-      /* "revcomp_c.pyx":20
- *         elif seq_src[i] == 'C':
- *             seq_dest[d] = 'G'
- *         elif seq_src[i] == 'T':             # <<<<<<<<<<<<<<
- *             seq_dest[d] = 'A'
- *     return seq_dest[:seq_len].decode('ascii')
- */
-    }
-    __pyx_L5:;
+    (__pyx_v_10revcomp_c2_seq_dest[((__pyx_v_10revcomp_c2_seq_len - __pyx_v_i) - 1)]) = (__pyx_v_10revcomp_c2_basemap[((int)(__pyx_v_seq_src[__pyx_v_i]))]);
   }
 
-  /* "revcomp_c.pyx":22
- *         elif seq_src[i] == 'T':
- *             seq_dest[d] = 'A'
- *     return seq_dest[:seq_len].decode('ascii')             # <<<<<<<<<<<<<<
+  /* "revcomp_c2.pyx":15
+ *     for i in range(seq_len):
+ *         seq_dest[seq_len - i - 1] = basemap[<int>seq_src[i]]
+ *     return seq_dest[:seq_len].decode('UTF-8')             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_decode_c_string(__pyx_v_9revcomp_c_seq_dest, 0, __pyx_v_9revcomp_c_seq_len, NULL, NULL, PyUnicode_DecodeASCII); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_decode_c_string(__pyx_v_10revcomp_c2_seq_dest, 0, __pyx_v_10revcomp_c2_seq_len, NULL, NULL, PyUnicode_DecodeUTF8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "revcomp_c.pyx":7
- * seq_dest[seq_len] = '\0'
+  /* "revcomp_c2.pyx":9
+ * cdef char *basemap = [ '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',   '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  'T', '\0',  'G', '\0', '\0', '\0',  'C', '\0', '\0', '\0', '\0', '\0', '\0',  'N', '\0', '\0', '\0', '\0', '\0',  'A',  'A', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  't', '\0',  'g', '\0', '\0', '\0',  'c', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  'a',  'a' ]
  * 
- * def reverse_complement_c_v1(str seq):             # <<<<<<<<<<<<<<
- *     cdef bytes py_bytes = seq.encode('ascii')
+ * def reverse_complement_c_v2(str seq):             # <<<<<<<<<<<<<<
+ *     cdef bytes py_bytes = seq.encode('UTF-8')
  *     cdef char *seq_src = py_bytes
  */
 
@@ -1070,7 +942,7 @@ static PyObject *__pyx_pf_9revcomp_c_reverse_complement_c_v1(CYTHON_UNUSED PyObj
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("revcomp_c.reverse_complement_c_v1", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("revcomp_c2.reverse_complement_c_v2", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_py_bytes);
@@ -1090,7 +962,7 @@ static struct PyModuleDef __pyx_moduledef = {
   #else
     PyModuleDef_HEAD_INIT,
   #endif
-    "revcomp_c",
+    "revcomp_c2",
     0, /* m_doc */
     -1, /* m_size */
     __pyx_methods /* m_methods */,
@@ -1102,23 +974,22 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
+  {&__pyx_kp_s_UTF_8, __pyx_k_UTF_8, sizeof(__pyx_k_UTF_8), 0, 0, 1, 0},
   {&__pyx_kp_s_Users_darrin_git_kmer_scaffolde, __pyx_k_Users_darrin_git_kmer_scaffolde, sizeof(__pyx_k_Users_darrin_git_kmer_scaffolde), 0, 0, 1, 0},
-  {&__pyx_n_s_ascii, __pyx_k_ascii, sizeof(__pyx_k_ascii), 0, 0, 1, 1},
-  {&__pyx_n_s_d, __pyx_k_d, sizeof(__pyx_k_d), 0, 0, 1, 1},
   {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
   {&__pyx_n_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_py_bytes, __pyx_k_py_bytes, sizeof(__pyx_k_py_bytes), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
-  {&__pyx_n_s_revcomp_c, __pyx_k_revcomp_c, sizeof(__pyx_k_revcomp_c), 0, 0, 1, 1},
-  {&__pyx_n_s_reverse_complement_c_v1, __pyx_k_reverse_complement_c_v1, sizeof(__pyx_k_reverse_complement_c_v1), 0, 0, 1, 1},
+  {&__pyx_n_s_revcomp_c2, __pyx_k_revcomp_c2, sizeof(__pyx_k_revcomp_c2), 0, 0, 1, 1},
+  {&__pyx_n_s_reverse_complement_c_v2, __pyx_k_reverse_complement_c_v2, sizeof(__pyx_k_reverse_complement_c_v2), 0, 0, 1, 1},
   {&__pyx_n_s_seq, __pyx_k_seq, sizeof(__pyx_k_seq), 0, 0, 1, 1},
   {&__pyx_n_s_seq_src, __pyx_k_seq_src, sizeof(__pyx_k_seq_src), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 13, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -1128,28 +999,28 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "revcomp_c.pyx":8
+  /* "revcomp_c2.pyx":10
  * 
- * def reverse_complement_c_v1(str seq):
- *     cdef bytes py_bytes = seq.encode('ascii')             # <<<<<<<<<<<<<<
+ * def reverse_complement_c_v2(str seq):
+ *     cdef bytes py_bytes = seq.encode('UTF-8')             # <<<<<<<<<<<<<<
  *     cdef char *seq_src = py_bytes
  *     cdef int i = 0
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_n_s_ascii); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_UTF_8); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "revcomp_c.pyx":7
- * seq_dest[seq_len] = '\0'
+  /* "revcomp_c2.pyx":9
+ * cdef char *basemap = [ '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',   '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  'T', '\0',  'G', '\0', '\0', '\0',  'C', '\0', '\0', '\0', '\0', '\0', '\0',  'N', '\0', '\0', '\0', '\0', '\0',  'A',  'A', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  't', '\0',  'g', '\0', '\0', '\0',  'c', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  'a',  'a' ]
  * 
- * def reverse_complement_c_v1(str seq):             # <<<<<<<<<<<<<<
- *     cdef bytes py_bytes = seq.encode('ascii')
+ * def reverse_complement_c_v2(str seq):             # <<<<<<<<<<<<<<
+ *     cdef bytes py_bytes = seq.encode('UTF-8')
  *     cdef char *seq_src = py_bytes
  */
-  __pyx_tuple__2 = PyTuple_Pack(5, __pyx_n_s_seq, __pyx_n_s_py_bytes, __pyx_n_s_seq_src, __pyx_n_s_i, __pyx_n_s_d); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(4, __pyx_n_s_seq, __pyx_n_s_py_bytes, __pyx_n_s_seq_src, __pyx_n_s_i); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_darrin_git_kmer_scaffolde, __pyx_n_s_reverse_complement_c_v1, 7, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_darrin_git_kmer_scaffolde, __pyx_n_s_reverse_complement_c_v2, 9, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -1165,14 +1036,15 @@ static int __Pyx_InitGlobals(void) {
 }
 
 #if PY_MAJOR_VERSION < 3
-PyMODINIT_FUNC initrevcomp_c(void); /*proto*/
-PyMODINIT_FUNC initrevcomp_c(void)
+PyMODINIT_FUNC initrevcomp_c2(void); /*proto*/
+PyMODINIT_FUNC initrevcomp_c2(void)
 #else
-PyMODINIT_FUNC PyInit_revcomp_c(void); /*proto*/
-PyMODINIT_FUNC PyInit_revcomp_c(void)
+PyMODINIT_FUNC PyInit_revcomp_c2(void); /*proto*/
+PyMODINIT_FUNC PyInit_revcomp_c2(void)
 #endif
 {
-  PyObject *__pyx_t_1 = NULL;
+  static char __pyx_t_1[118];
+  PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannyDeclarations
   #if CYTHON_REFNANNY
   __Pyx_RefNanny = __Pyx_RefNannyImportAPI("refnanny");
@@ -1183,7 +1055,7 @@ PyMODINIT_FUNC PyInit_revcomp_c(void)
           Py_FatalError("failed to import 'refnanny' module");
   }
   #endif
-  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_revcomp_c(void)", 0);
+  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_revcomp_c2(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -1212,7 +1084,7 @@ PyMODINIT_FUNC PyInit_revcomp_c(void)
   #endif
   /*--- Module creation code ---*/
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("revcomp_c", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("revcomp_c2", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -1229,14 +1101,14 @@ PyMODINIT_FUNC PyInit_revcomp_c(void)
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_revcomp_c) {
+  if (__pyx_module_is_main_revcomp_c2) {
     if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "revcomp_c")) {
-      if (unlikely(PyDict_SetItemString(modules, "revcomp_c", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "revcomp_c2")) {
+      if (unlikely(PyDict_SetItemString(modules, "revcomp_c2", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -1256,67 +1128,194 @@ PyMODINIT_FUNC PyInit_revcomp_c(void)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "revcomp_c.pyx":3
+  /* "revcomp_c2.pyx":3
  * from libc.stdlib cimport malloc
  * 
  * cdef int seq_len = 17             # <<<<<<<<<<<<<<
  * cdef char *seq_dest = <char *>malloc(seq_len + 1)
  * seq_dest[seq_len] = '\0'
  */
-  __pyx_v_9revcomp_c_seq_len = 17;
+  __pyx_v_10revcomp_c2_seq_len = 17;
 
-  /* "revcomp_c.pyx":4
+  /* "revcomp_c2.pyx":4
  * 
  * cdef int seq_len = 17
  * cdef char *seq_dest = <char *>malloc(seq_len + 1)             # <<<<<<<<<<<<<<
  * seq_dest[seq_len] = '\0'
  * 
  */
-  __pyx_v_9revcomp_c_seq_dest = ((char *)malloc((__pyx_v_9revcomp_c_seq_len + 1)));
+  __pyx_v_10revcomp_c2_seq_dest = ((char *)malloc((__pyx_v_10revcomp_c2_seq_len + 1)));
 
-  /* "revcomp_c.pyx":5
+  /* "revcomp_c2.pyx":5
  * cdef int seq_len = 17
  * cdef char *seq_dest = <char *>malloc(seq_len + 1)
  * seq_dest[seq_len] = '\0'             # <<<<<<<<<<<<<<
  * 
- * def reverse_complement_c_v1(str seq):
+ * cdef char *basemap = [ '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',   '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  'T', '\0',  'G', '\0', '\0', '\0',  'C', '\0', '\0', '\0', '\0', '\0', '\0',  'N', '\0', '\0', '\0', '\0', '\0',  'A',  'A', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  't', '\0',  'g', '\0', '\0', '\0',  'c', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  'a',  'a' ]
  */
-  (__pyx_v_9revcomp_c_seq_dest[__pyx_v_9revcomp_c_seq_len]) = '\x00';
+  (__pyx_v_10revcomp_c2_seq_dest[__pyx_v_10revcomp_c2_seq_len]) = '\x00';
 
-  /* "revcomp_c.pyx":7
+  /* "revcomp_c2.pyx":7
  * seq_dest[seq_len] = '\0'
  * 
- * def reverse_complement_c_v1(str seq):             # <<<<<<<<<<<<<<
- *     cdef bytes py_bytes = seq.encode('ascii')
+ * cdef char *basemap = [ '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',   '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  'T', '\0',  'G', '\0', '\0', '\0',  'C', '\0', '\0', '\0', '\0', '\0', '\0',  'N', '\0', '\0', '\0', '\0', '\0',  'A',  'A', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  't', '\0',  'g', '\0', '\0', '\0',  'c', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  'a',  'a' ]             # <<<<<<<<<<<<<<
+ * 
+ * def reverse_complement_c_v2(str seq):
+ */
+  __pyx_t_1[0] = '\x00';
+  __pyx_t_1[1] = '\x00';
+  __pyx_t_1[2] = '\x00';
+  __pyx_t_1[3] = '\x00';
+  __pyx_t_1[4] = '\x00';
+  __pyx_t_1[5] = '\x00';
+  __pyx_t_1[6] = '\x00';
+  __pyx_t_1[7] = '\x00';
+  __pyx_t_1[8] = '\x00';
+  __pyx_t_1[9] = '\x00';
+  __pyx_t_1[10] = '\x00';
+  __pyx_t_1[11] = '\x00';
+  __pyx_t_1[12] = '\x00';
+  __pyx_t_1[13] = '\x00';
+  __pyx_t_1[14] = '\x00';
+  __pyx_t_1[15] = '\x00';
+  __pyx_t_1[16] = '\x00';
+  __pyx_t_1[17] = '\x00';
+  __pyx_t_1[18] = '\x00';
+  __pyx_t_1[19] = '\x00';
+  __pyx_t_1[20] = '\x00';
+  __pyx_t_1[21] = '\x00';
+  __pyx_t_1[22] = '\x00';
+  __pyx_t_1[23] = '\x00';
+  __pyx_t_1[24] = '\x00';
+  __pyx_t_1[25] = '\x00';
+  __pyx_t_1[26] = '\x00';
+  __pyx_t_1[27] = '\x00';
+  __pyx_t_1[28] = '\x00';
+  __pyx_t_1[29] = '\x00';
+  __pyx_t_1[30] = '\x00';
+  __pyx_t_1[31] = '\x00';
+  __pyx_t_1[32] = '\x00';
+  __pyx_t_1[33] = '\x00';
+  __pyx_t_1[34] = '\x00';
+  __pyx_t_1[35] = '\x00';
+  __pyx_t_1[36] = '\x00';
+  __pyx_t_1[37] = '\x00';
+  __pyx_t_1[38] = '\x00';
+  __pyx_t_1[39] = '\x00';
+  __pyx_t_1[40] = '\x00';
+  __pyx_t_1[41] = '\x00';
+  __pyx_t_1[42] = '\x00';
+  __pyx_t_1[43] = '\x00';
+  __pyx_t_1[44] = '\x00';
+  __pyx_t_1[45] = '\x00';
+  __pyx_t_1[46] = '\x00';
+  __pyx_t_1[47] = '\x00';
+  __pyx_t_1[48] = '\x00';
+  __pyx_t_1[49] = '\x00';
+  __pyx_t_1[50] = '\x00';
+  __pyx_t_1[51] = '\x00';
+  __pyx_t_1[52] = '\x00';
+  __pyx_t_1[53] = '\x00';
+  __pyx_t_1[54] = '\x00';
+  __pyx_t_1[55] = '\x00';
+  __pyx_t_1[56] = '\x00';
+  __pyx_t_1[57] = '\x00';
+  __pyx_t_1[58] = '\x00';
+  __pyx_t_1[59] = '\x00';
+  __pyx_t_1[60] = '\x00';
+  __pyx_t_1[61] = '\x00';
+  __pyx_t_1[62] = '\x00';
+  __pyx_t_1[63] = '\x00';
+  __pyx_t_1[64] = '\x00';
+  __pyx_t_1[65] = 'T';
+  __pyx_t_1[66] = '\x00';
+  __pyx_t_1[67] = 'G';
+  __pyx_t_1[68] = '\x00';
+  __pyx_t_1[69] = '\x00';
+  __pyx_t_1[70] = '\x00';
+  __pyx_t_1[71] = 'C';
+  __pyx_t_1[72] = '\x00';
+  __pyx_t_1[73] = '\x00';
+  __pyx_t_1[74] = '\x00';
+  __pyx_t_1[75] = '\x00';
+  __pyx_t_1[76] = '\x00';
+  __pyx_t_1[77] = '\x00';
+  __pyx_t_1[78] = 'N';
+  __pyx_t_1[79] = '\x00';
+  __pyx_t_1[80] = '\x00';
+  __pyx_t_1[81] = '\x00';
+  __pyx_t_1[82] = '\x00';
+  __pyx_t_1[83] = '\x00';
+  __pyx_t_1[84] = 'A';
+  __pyx_t_1[85] = 'A';
+  __pyx_t_1[86] = '\x00';
+  __pyx_t_1[87] = '\x00';
+  __pyx_t_1[88] = '\x00';
+  __pyx_t_1[89] = '\x00';
+  __pyx_t_1[90] = '\x00';
+  __pyx_t_1[91] = '\x00';
+  __pyx_t_1[92] = '\x00';
+  __pyx_t_1[93] = '\x00';
+  __pyx_t_1[94] = '\x00';
+  __pyx_t_1[95] = '\x00';
+  __pyx_t_1[96] = '\x00';
+  __pyx_t_1[97] = 't';
+  __pyx_t_1[98] = '\x00';
+  __pyx_t_1[99] = 'g';
+  __pyx_t_1[100] = '\x00';
+  __pyx_t_1[101] = '\x00';
+  __pyx_t_1[102] = '\x00';
+  __pyx_t_1[103] = 'c';
+  __pyx_t_1[104] = '\x00';
+  __pyx_t_1[105] = '\x00';
+  __pyx_t_1[106] = '\x00';
+  __pyx_t_1[107] = '\x00';
+  __pyx_t_1[108] = '\x00';
+  __pyx_t_1[109] = '\x00';
+  __pyx_t_1[110] = '\x00';
+  __pyx_t_1[111] = '\x00';
+  __pyx_t_1[112] = '\x00';
+  __pyx_t_1[113] = '\x00';
+  __pyx_t_1[114] = '\x00';
+  __pyx_t_1[115] = '\x00';
+  __pyx_t_1[116] = 'a';
+  __pyx_t_1[117] = 'a';
+  __pyx_v_10revcomp_c2_basemap = __pyx_t_1;
+
+  /* "revcomp_c2.pyx":9
+ * cdef char *basemap = [ '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',   '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  'T', '\0',  'G', '\0', '\0', '\0',  'C', '\0', '\0', '\0', '\0', '\0', '\0',  'N', '\0', '\0', '\0', '\0', '\0',  'A',  'A', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  't', '\0',  'g', '\0', '\0', '\0',  'c', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0',  'a',  'a' ]
+ * 
+ * def reverse_complement_c_v2(str seq):             # <<<<<<<<<<<<<<
+ *     cdef bytes py_bytes = seq.encode('UTF-8')
  *     cdef char *seq_src = py_bytes
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9revcomp_c_1reverse_complement_c_v1, NULL, __pyx_n_s_revcomp_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_reverse_complement_c_v1, __pyx_t_1) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_10revcomp_c2_1reverse_complement_c_v2, NULL, __pyx_n_s_revcomp_c2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_reverse_complement_c_v2, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "revcomp_c.pyx":1
+  /* "revcomp_c2.pyx":1
  * from libc.stdlib cimport malloc             # <<<<<<<<<<<<<<
  * 
  * cdef int seq_len = 17
  */
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /*--- Wrapped vars code ---*/
 
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init revcomp_c", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init revcomp_c2", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init revcomp_c");
+    PyErr_SetString(PyExc_ImportError, "init revcomp_c2");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
