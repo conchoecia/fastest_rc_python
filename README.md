@@ -19,6 +19,7 @@
     ║ devonryan string          86.1%  0.005204  1921515.6 ║
     ║ jackaidley bytes          84.7%  0.005716  1749622.2 ║
     ║ jackaidley bytesstring    83.0%  0.006352  1574240.6 ║
+    ║ biopython just rc         70.5%  0.012275   814638.6 ║
     ║ global dict                5.4%  0.035330   283046.7 ║
     ║ revcomp_translateSO       45.9%  0.020202   494999.4 ║
     ║ string_replace            37.5%  0.023345   428364.9 ║
@@ -28,3 +29,8 @@
     ║ biopython seq then rc    -32.0%  0.049293   202869.7 ║
     ╚══════════════════════════════════════════════════════╝
 ```
+
+# Installation
+
+- Install [pipenv](https://docs.pipenv.org/)
+- run `pipenv install`
