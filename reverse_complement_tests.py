@@ -4,11 +4,11 @@ import timeit
 import numpy as np
 import os
 from Bio.Seq import Seq
+from Bio.Seq import reverse_complement as bio_reverse_complement
 import string
 import sys
 import subprocess
 import pandas as pd
-import progressbar
 
 
 #we need to build the seqpy extension if we have not yet built it
@@ -94,7 +94,6 @@ def reverse_complement_bytes_jackaidley(seq):
 def reverse_complement_bytesthenstring_jackaidley(seq):
     return str(seq.translate(tab_b)[::-1])
 
-
 bl= []
 for n in range(num_trials):
     tic=timeit.default_timer()
@@ -107,6 +106,7 @@ baseline = np.mean(bl)
 namefunc = {"naive (baseline)": reverse_complement_naive,
             "global dict ": reverse_complement,
             "biopython seq then rc": Seq,
+            "biopython just rc": bio_reverse_complement,
             "revcom from SO": revcom_fromSO,
             "lambda from SO": revcomplSO,
             "revcomp_translateSO": revcomp_translateSO,
@@ -123,7 +123,6 @@ results = {"name":[],
            "strings per second": [],
            "percent increase over baseline":[]}
 
-bar = progressbar.ProgressBar(max_value=int(len(namefunc) *num_trials))
 i = 0
 for function_name in sorted(namefunc):
     times_list = []
@@ -138,7 +137,6 @@ for function_name in sorted(namefunc):
         toc=timeit.default_timer()
         times_list.append(toc-tic)
         i += 1
-        bar.update(i)
     walltime = np.mean(times_list)
     results["name"].append(function_name)
     results["seconds total"].append(walltime)
